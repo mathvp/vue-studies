@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Basic Calculator</title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Quantico" rel="stylesheet">
   <style>
@@ -51,7 +51,7 @@
       font-size: 2rem;
       font-family: inherit;
     }
-    #result{
+    #calc-display{
       height: 80px;
       border: 1px solid #f0f0f0;
       background: rgb(159,171,135);
@@ -100,7 +100,10 @@
       grid-column: 1/5;
       padding-top: 10px;
     }
-    button#result-btn{
+    #calc-body .calc-btn:last-child{
+      grid-column: span 2;
+    }
+    #calc-body .calc-btn:last-child button{
       background: rgb(23,154,87);
       background: linear-gradient(-20deg, rgb(0, 110, 59) 0%, rgb(42, 231, 134) 100%);
       border-color: #d7d7d7;
@@ -109,70 +112,22 @@
       text-transform: uppercase;
     }
   </style>
+
 </head>
+
 <body>
   <div id="root">
     <div id="calculator">
       <h1 id="calc-logo">Calculator</h1>
-      <div id="result">0</div>
-      <!-- <input type="text" id="calc-input" autofocus /> -->
+      <div id="calc-display">{{ displayValue }}</div>
       <div id="calc-body">
-        <div class="calc-btn">
-          <button>7</button>
-        </div>
-        <div class="calc-btn">
-          <button>8</button>
-        </div>
-        <div class="calc-btn">
-          <button>9</button>
-        </div>
-        <div class="calc-btn">
-          <button>&divide;</button>
-        </div>
-        <div class="calc-btn">
-          <button>4</button>
-        </div>
-        <div class="calc-btn">
-          <button>5</button>
-        </div>
-        <div class="calc-btn">
-          <button>6</button>
-        </div>
-        <div class="calc-btn">
-          <button>x</button>
-        </div>
-        <div class="calc-btn">
-          <button>1</button>
-        </div>
-        <div class="calc-btn">
-          <button>2</button>
-        </div>
-        <div class="calc-btn">
-          <button>3</button>
-        </div>
-        <div class="calc-btn">
-          <button>-</button>
-        </div>
-        <div class="calc-btn">
-          <button>0</button>
-        </div>
-        <div class="calc-btn">
-          <button>,</button>
-        </div>
-        <div class="calc-btn">
-          <button style="font-size: 1rem;">mod</button>
-        </div>
-        <div class="calc-btn">
-          <button>+</button>
-        </div>
-        <div class="calc-btn two-cols">
-          <button>Clear</button>
-        </div>
-        <div class="calc-btn two-cols">
-          <button>Back</button>
-        </div>
-        <div class="calc-btn block-col">
-          <button id="result-btn">Result</button>
+        <div class="calc-btn" v-for="button in buttons">
+          <button
+            :class="{ operator:button.type == 'operator' }"
+            :style="button.style"
+            @click="buttonClick(button)">
+            {{ button.text }}
+          </button>
         </div>
       </div>
     </div>
@@ -180,7 +135,70 @@
   <script>
     var app = new Vue({
       el: '#root',
-      data: {}
+      data: {
+        displayValue: 0,
+        result: null,
+        buttons: [
+          { text: '7', type: 'number' },
+          { text: '8', type: 'number' },
+          { text: '9', type: 'number' },
+          { text: '÷', type: 'operator' },
+          { text: '4', type: 'number' },
+          { text: '6', type: 'number' },
+          { text: '5', type: 'number' },
+          { text: 'x', type: 'operator' },
+          { text: '1', type: 'number' },
+          { text: '2', type: 'number' },
+          { text: '3', type: 'number' },
+          { text: '-', type: 'operator' },
+          { text: '0', type: 'number' },
+          { text: '.', type: 'number' },
+          { text: 'mod', type: 'operator', style: 'font-size: 1rem;' },
+          { text: '+', type: 'operator' },
+          { text: 'Clear', type: 'cleaner', limit: -1 },
+          { text: 'Back', type: 'cleaner', limit: 0 },
+          { text: 'Result', type: 'result' },
+        ]
+      },
+      methods: {
+        buttonClick(button){
+          if (button.type == 'number') {
+            if(this.displayValue == 0 || this.result == 0){
+              this.displayValue = ''
+              this.result = null
+            }
+
+          } else {
+            if (this.result !== null) {
+              this.displayValue = this.result
+              this.result = null
+            }
+          }
+
+          if (button.type == 'number' || button.type == 'operator') {
+            if(button.text == '.' && this.displayValue.includes('.')) {
+              return
+            }
+            this.displayValue += ' ' + button.text
+
+          } else {
+            if (button.type == 'cleaner') {
+              this.displayValue = this.displayValue.slice(button.limit, -1)
+              if(this.displayValue == '') {
+                this.displayValue = '0'
+              }
+            } else {
+              let expression = this.displayValue.replace(/\s/g,'')
+              expression = expression.replace('÷', '/') || expression
+              expression = expression.replace('x', '*') || expression
+              expression = expression.replace('mod', '%') || expression
+
+              this.result = eval(expression)
+              this.displayValue += ' = ' + this.result
+            }
+          }
+        }
+      }
     })
   </script>
 </body>
