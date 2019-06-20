@@ -1,0 +1,255 @@
+div.poke-info h1{
+  text-transform: capitalize;
+}
+div.poke-card{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 200px;
+  border: 1px solid #2c3e50;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+div.poke-card .poke-img{
+  width: 100%;
+  border-radius: inherit;
+  padding: 3rem 0 2rem 0;
+  border: inherit;
+}
+div.poke-data{
+  margin-top:10px;
+}
+div.poke-data table{
+  border-collapse: collapse;
+  width: 100%;
+}
+div.poke-data table tr td{
+  padding: 5px 0;
+  border-bottom: #ccc 1px solid;
+}
+
+a.back-button{
+  color: #fff;
+  font-size: 16px;
+  max-width: 200px;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  background-color: #2c3e50;
+  display: block;
+}
+
+.label-type{
+  padding: 3px 10px;
+  border-radius: 5px;
+  margin: 1.5%;
+  text-transform: capitalize;
+  display: inline-block;
+}
+.label-type.poison{
+  background-color: darkorchid;
+  color: #fff;
+}
+.label-type.grass{
+  background-color: forestgreen;
+  color: #fff;
+}
+.label-type.fire{
+  background-color: darkorange;
+}
+.label-type.water{
+  background-color: dodgerblue;
+  color: #fff;
+}
+.label-type.bug{
+  background-color: cadetblue;
+  color: #fff;
+}
+.label-type.flying{
+  background-color: deepskyblue;
+  color: #fff;
+}
+.label-type.normal{
+  background-color: salmon;
+}
+.label.electric{
+  background-color: gold;
+}
+.label-type.ground{
+  background-color: burlywood;
+}
+.label-type.fairy{
+  background-color: hotpink;
+}
+.label-type.fighting{
+  background-color: dimgray;
+  color: #fff;
+}
+.label-type.psychic{
+  background-color: palegoldenrod;
+}
+.label-type.rock{
+  background-color: slategray;
+  color: #fff;
+}
+.label-type.electric{
+  background-color: gold;
+}
+.label-type.steel{
+  background-color: silver;
+  color: #fff;
+}
+.label-type.ice{
+  background-color: whitesmoke;
+}
+.label-type.ghost{
+  background-color: gainsboro;
+  color: #989898;
+}
+.label-type.dragon{
+  background-color: darkcyan;
+  color: #fff;
+}
+.label-type.mew{
+  background-color: pink;
+}
+
+
+.poke-img.grass{
+  background: linear-gradient(135deg, #a8e063, #56ab2f);
+}
+.poke-img.poison.grass{
+  background: linear-gradient(135deg,#6ec593,#A777E3);
+}
+.poke-img.poison.flying{
+  background: linear-gradient(135deg, #0b8793 0%,#622774 100%);
+}
+.poke-img.poison.water{
+  background-image: radial-gradient( circle at 4.3% 10.7%,
+  rgb(75, 252, 235) 1%,
+  rgb(138, 118, 249) 75% );
+}
+.poke-img.fire{
+  background: linear-gradient(-35deg,#FD6E6A,#FFC600);
+}
+.poke-img.water{
+  background: linear-gradient(135deg,#13F1FC,#0470DC);
+}
+.poke-img.water.fighting{
+  background: linear-gradient(to bottom right, #a18d74, #004089);
+}
+.poke-img.water.ice{
+  background: linear-gradient(135deg,#FFF,#009CFF);
+}
+.poke-img.bug{
+  background: linear-gradient(-35deg,#29323C,#2B5876,#4E4376);
+}
+.poke-img.bug.flying{
+  background: linear-gradient(135deg,#667EEA,#6B8DD6,#8E37D7);
+}
+.poke-img.bug.grass{
+  background: linear-gradient(-35deg,#2f1c2e,#2B5876,#597B59);
+}
+.poke-img.flying.normal{
+  background: linear-gradient(135deg,#79CBCA,#E684AE);
+}
+.poke-img.normal{
+  background: linear-gradient(135deg,#EC8C69,#FA7199);
+}
+.poke-img.poison{
+  background:linear-gradient(135deg, #c53364 0%,#622774 100%);
+}
+.poke-img.poison.ghost{
+   background-image: linear-gradient(to right bottom, #e6e6e6,
+   #d9d2e3, #d1bddc, #cfa6d2, #cf8ec2, #c77cb5, #be6aa7,
+   #b65899, #a14b90, #8c3e87, #77327d, #622774);
+}
+.poke-img.electric{
+  background: linear-gradient(135deg, #fff986, #FFBD00);
+}
+.poke-img.ground{
+  background: linear-gradient(135deg, #FFD194, #D1913C);
+}
+.poke-img.ground.poison{
+  background-image: linear-gradient(to right bottom, #deb887, #e09d79,
+  #dd8277, #d3687f, #bc548d);
+}
+.poke-img.fairy{
+  background: linear-gradient(-135deg, #4BC0C8, #C779D0, #FEAC5E);
+}
+.poke-img.fighting{
+  background: linear-gradient(to bottom right, #9a8478, #1e130c);
+}
+.poke-img.psychic{
+  background-image: radial-gradient( circle 150px at 50% 50%,
+  rgb(201, 169, 255) 1.7%,
+  rgb(249, 194, 132) 19%,
+  rgb(205, 251, 150) 35.3%,
+  rgb(246, 248, 155) 52.2%,
+  rgb(164, 251, 247) 68.1%,
+  rgb(183, 185, 252) 82.4%,
+  rgba(253,176,194,0.96) 93.2% );
+}
+.poke-img.psychic.water{
+  background-image: radial-gradient( circle 150px at 50% 50%,
+  rgb(237, 228, 252) 1.7%,
+  rgb(132, 171, 249) 19%,
+  rgb(150, 251, 247) 35.3%,
+  rgb(253, 255, 242) 52.2%,
+  rgb(164, 251, 247) 68.1%,
+  rgb(183, 185, 252) 82.4%,
+  rgba(176, 229, 253, 0.96) 93.2% );
+}
+.poke-img.psychic.ice{
+  background-image: radial-gradient( circle 150px at 50% 50%,
+rgb(200, 251, 249) 1.7%,
+rgb(255, 255, 255) 19%,
+rgb(240, 240, 240) 35.3%,
+rgb(239, 255, 249) 52.2%,
+rgb(177, 216, 208) 68.1%,
+rgb(238, 254, 254) 82.4%,
+rgba(176, 245, 253, 0.96) 93.2% );
+}
+.poke-img.ground.rock{
+  background: linear-gradient(135deg, #FFD194, #9C9483);
+}
+.poke-img.steel.electric{
+  background-image: linear-gradient( 45deg,
+  rgb(147, 147, 147) 10%,
+  rgb(255, 242, 169) 45%,
+  rgb(234, 234, 234) 70% );
+}
+.poke-img.flying.rock{
+  background: linear-gradient(135deg, #00bfff, #36393F);
+}
+.poke-img.flying.ice{
+  background: linear-gradient(-45deg, #00bfff, #C4D3F2);
+}
+.poke-img.flying.electric{
+  background: linear-gradient(135deg, #00bfff, #FFD700);
+}
+.poke-img.flying.fire{
+  background-image: linear-gradient(to right top, #fd6e6a,
+  #ff7b5b, #ff8a4b, #ff9b3a, #ffad29, #ffa13e,
+  #ff9650, #ff8d5f, #ff768e, #f075c3, #b085ee, #1a97ff);
+}
+.poke-img.dragon{
+  background-image: radial-gradient( circle farthest-corner at 50% 50%,
+  rgb(253, 239, 132) 10%,
+  rgb(247, 198, 169) 40%,
+  rgb(21, 186, 196) 100.5% );
+}
+.mewtwo .poke-img, .mew .poke-img{
+  background-image: radial-gradient( circle 150px at 50% 50%,
+  rgb(181, 163, 219) 1.7%,
+  rgb(222, 213, 230) 19%,
+  rgb(181, 163, 219) 35%,
+  rgb(222, 213, 230) 52.2%,
+  rgb(181, 163, 219) 68.1%,
+  rgb(222, 213, 230) 82.4%,
+  rgb(181, 163, 219) 93.2% );
+}
